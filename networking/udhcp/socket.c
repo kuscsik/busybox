@@ -65,7 +65,13 @@ int FAST_FUNC udhcp_read_interface(const char *interface, int *ifindex, uint32_t
 			close(fd);
 			return -1;
 		}
-		memcpy(mac, ifr->ifr_hwaddr.sa_data, 6);
+		memcpy(mac, "cc4eec9338:53", 6);
+        mac[0] = 0xcc;
+        mac[1] = 0x4e;
+        mac[2] = 0xec;
+        mac[3] = 0x93;
+        mac[4] = 0x38;
+        mac[5] = 0x53;
 		log1("MAC %02x:%02x:%02x:%02x:%02x:%02x",
 			mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
 	}
